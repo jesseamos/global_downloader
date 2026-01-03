@@ -1,14 +1,14 @@
 import 'package:go_router/go_router.dart';
-import 'package:spotify_downloader/features/dashboard/presentation/screens/main_dashboard_screen.dart';
+import 'package:spotify_downloader/features/spotify/presentation/screens/download_spotify.dart';
 
 final GoRouter appRouter = GoRouter(
-  initialLocation: MainDashboardScreen.routeName,
+  initialLocation: DownloadSpotify.routeName,
   // navigatorKey: navigatorKey,
   routes: [
     GoRoute(
-      path: MainDashboardScreen.routeName,
-      name: MainDashboardScreen.routeName,
-      builder: (context, state) => MainDashboardScreen(),
+      path: DownloadSpotify.routeName,
+      name: DownloadSpotify.routeName,
+      builder: (context, state) => DownloadSpotify(),
     ),
     // GoRoute(
     //   path: RegisterScreen.routeName,

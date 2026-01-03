@@ -64,7 +64,7 @@ class CustomButton extends StatelessWidget {
               TextStyle(
                 fontWeight: FontWeight.bold,
                 fontSize: fontSize,
-                color: textColor ?? Colors.white,
+                color: textColor ?? Colors.black,
               ),
         ),
         icon: isLoading

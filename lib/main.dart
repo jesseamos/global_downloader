@@ -6,6 +6,7 @@ import 'package:spotify_downloader/core/config/app_router.dart';
 import 'package:spotify_downloader/core/config/app_theme.dart';
 import 'package:spotify_downloader/core/presentation/cubit/theme_cubit.dart';
 import 'package:spotify_downloader/di.dart';
+import 'package:spotify_downloader/features/spotify/presentation/cubit/sportify_cubit.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -28,6 +29,7 @@ class MyApp extends StatelessWidget {
         return MultiBlocProvider(
           providers: [
             BlocProvider(create: (_) => serviceLocator<ThemeCubit>()),
+            BlocProvider(create: (_) => serviceLocator<SportifyCubit>()),
           ],
           child: BlocBuilder<ThemeCubit, ThemeMode>(
             builder: (context, themeMode) {

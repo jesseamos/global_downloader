@@ -1,6 +1,7 @@
 class Endpoints {
   // generic
   static String countries = '/countries?do_not_paginate=1';
+  static String downloadSong = '/downloadSong';
   static String states = '/states?do_not_paginate=1';
   static String serviceStatus = '/service-status-check';
   static String serviceCharges = '/service-charges';

@@ -3,6 +3,7 @@ import 'package:spotify_downloader/core/config/colors_constant.dart';
 import 'package:spotify_downloader/core/icons/bottom_navs_icons.dart';
 import 'package:spotify_downloader/core/icons/vectors_icon.dart';
 import 'package:spotify_downloader/core/presentation/widgets/svg_icon.dart';
+import 'package:spotify_downloader/features/spotify/presentation/screens/download_spotify.dart';
 
 class MainDashboardScreen extends StatefulWidget {
   final int? index;
@@ -27,7 +28,7 @@ class _MainDashboardScreenState extends State<MainDashboardScreen> {
   }
 
   static const List<Widget> _widgetOptions = <Widget>[
-    Placeholder(),
+    DownloadSpotify(),
     Placeholder(),
     Placeholder(),
     Placeholder(),

@@ -7,12 +7,18 @@ import 'package:spotify_downloader/core/network/connection_checker.dart';
 import 'package:spotify_downloader/core/network/dio_client.dart';
 import 'package:spotify_downloader/core/presentation/cubit/theme_cubit.dart';
 import 'package:spotify_downloader/core/utils/user_storage.dart';
+import 'package:spotify_downloader/features/spotify/data/datasources/spotify_remote_datasources.dart';
+import 'package:spotify_downloader/features/spotify/data/repositories/spotify_repository_impl.dart';
+import 'package:spotify_downloader/features/spotify/domain/repository/spotify_repository.dart';
+import 'package:spotify_downloader/features/spotify/domain/usecases/download_song_usecase.dart';
+import 'package:spotify_downloader/features/spotify/presentation/cubit/sportify_cubit.dart';
 
 final serviceLocator = GetIt.instance;
 
 Future<void> initDependencies() async {
   await dotenv.load(fileName: ".env");
   await Future.delayed(const Duration(seconds: 3));
+  _initDownloadSong();
   // _initAuth();
   // _initUser();
   // _initNotifications();
@@ -43,5 +49,25 @@ Future<void> initDependencies() async {
 
   serviceLocator.registerFactory<ConnectionChecker>(
     () => ConnectionCheckerImpl(serviceLocator()),
+  );
+}
+
+void _initDownloadSong() {
+  // Datasource
+  serviceLocator
+    ..registerFactory<SpotifyRemoteDatasources>(
+      () => SpotifyRemoteDatasourcesImpl(serviceLocator()),
+    )
+    // Repository
+    // Repository
+    ..registerFactory<SpotifyRepository>(
+      () => SpotifyRepositoryImpl(serviceLocator(), serviceLocator()),
+    )
+    //usecases
+    ..registerFactory(() => DownloadSongUsecase(serviceLocator()));
+
+  // cubit
+  serviceLocator.registerLazySingleton(
+    () => SportifyCubit(downloadSongUsecase: serviceLocator()),
   );
 }
