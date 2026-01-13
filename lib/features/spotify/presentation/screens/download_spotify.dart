@@ -1,12 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:spotify_downloader/core/config/colors_constant.dart';
 import 'package:spotify_downloader/core/icons/vectors_icon.dart';
 import 'package:spotify_downloader/core/presentation/widgets/custom_appbar.dart';
 import 'package:spotify_downloader/core/presentation/widgets/custom_button.dart';
 import 'package:spotify_downloader/core/presentation/widgets/custom_input_field.dart';
-import 'package:spotify_downloader/core/presentation/widgets/helper_widgets.dart'; // Assuming showBottomModal is here
-import 'package:spotify_downloader/core/presentation/widgets/state_widgets.dart'; // Assuming AppToast is here
+import 'package:spotify_downloader/core/presentation/widgets/state_widgets.dart';
 import 'package:spotify_downloader/core/presentation/widgets/svg_icon.dart';
 import 'package:spotify_downloader/features/spotify/presentation/cubit/sportify_cubit.dart';
 import 'package:url_launcher/url_launcher.dart';
